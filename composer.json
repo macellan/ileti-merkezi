@@ -16,8 +16,7 @@
         "illuminate/notifications": "~7.0 || ~8.0",
         "illuminate/support": "~7.0 || ~8.0",
         "illuminate/http": "~7.0 || ~8.0",
-        "ext-json": "*",
-        "ext-simplexml": "*"
+        "ext-json": "*"
     },
     "require-dev": {
         "mockery/mockery": "^1.0",
