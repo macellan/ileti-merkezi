@@ -94,12 +94,6 @@ Notification::route('iletimerkezi', '905322234433')
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-## Testing
-
-``` bash
-composer test
-```
-
 ## Security
 
 If you discover any security related issues, please email fatih@aytekin.me instead of using the issue tracker.

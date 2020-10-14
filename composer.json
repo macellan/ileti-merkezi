@@ -28,15 +28,6 @@
             "Macellan\\IletiMerkezi\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Macellan\\IletiMerkezi\\Test\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test:coverage": "phpunit --coverage-text --coverage-clover=coverage.clover"
-    },
     "config": {
         "sort-packages": true
     },
