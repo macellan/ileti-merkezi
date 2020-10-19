@@ -72,6 +72,47 @@ class IletiMerkeziChannel
     }
 
     /**
+     * Send the given notification.
+     *
+     * @param mixed $notifiable
+     * @param Notification $notification
+     *
+     * @return void|array
+     * @throws CouldNotSendNotification
+     * @noinspection PhpUndefinedMethodInspection
+     */
+    public function send($notifiable, Notification $notification)
+    {
+        if (! $this->enable) {
+            if ($this->debug) {
+                Log::info('Ileti Merkezi is disabled');
+            }
+
+            return;
+        }
+
+        /** @var IletiMerkeziMessage $message */
+        $message = $notification->toIletiMerkezi($notifiable);
+        if (is_string($message)) {
+            $message = new IletiMerkeziMessage($message);
+        }
+
+        array_push($message->numbers, $notifiable->routeNotificationFor('sms'));
+
+        $result = $this->postData((object) [
+            'numbers' => $message->numbers,
+            'message' => $message->body,
+            'sendDateTime' => $message->sendTime,
+        ]);
+
+        if ($this->debug && $result) {
+            Log::info('Ileti Merkezi send result - '.print_r($result, true));
+        }
+
+        return $result;
+    }
+
+    /**
      * @param $sms
      * @return object|void
      * @throws CouldNotSendNotification
@@ -121,46 +162,5 @@ class IletiMerkeziChannel
 
             throw CouldNotSendNotification::couldNotCommunicateWithEndPoint($exception, $message);
         }
-    }
-
-    /**
-     * Send the given notification.
-     *
-     * @param mixed $notifiable
-     * @param Notification $notification
-     *
-     * @return void|array
-     * @throws CouldNotSendNotification
-     * @noinspection PhpUndefinedMethodInspection
-     */
-    public function send($notifiable, Notification $notification)
-    {
-        if (! $this->enable) {
-            if ($this->debug) {
-                Log::info('Ileti Merkezi is disabled');
-            }
-
-            return;
-        }
-
-        /** @var IletiMerkeziMessage $message */
-        $message = $notification->toIletiMerkezi($notifiable);
-        if (is_string($message)) {
-            $message = new IletiMerkeziMessage($message);
-        }
-
-        array_push($message->numbers, $notifiable->routeNotificationFor('sms'));
-
-        $result = $this->postData((object) [
-            'numbers' => $message->numbers,
-            'message' => $message->body,
-            'sendDateTime' => $message->sendTime,
-        ]);
-
-        if ($this->debug) {
-            Log::info('Ileti Merkezi send result - '.print_r($result, true));
-        }
-
-        return $result;
     }
 }
