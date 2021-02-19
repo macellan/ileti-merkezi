@@ -67,7 +67,7 @@ class IletiMerkeziChannel
         $this->endPoint = 'https://api.iletimerkezi.com/v1/send-sms/json';
         $this->origin = Arr::get($config, 'origin');
         $this->debug = Arr::get($config, 'debug', false);
-        $this->enable = Arr::get($config, 'enable', true);
+        $this->enable = Arr::get($config, 'enable', false);
         $this->sandboxMode = Arr::get($config, 'sandboxMode', false);
     }
 
