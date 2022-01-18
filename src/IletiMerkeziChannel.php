@@ -77,7 +77,7 @@ class IletiMerkeziChannel
      * @param mixed $notifiable
      * @param Notification $notification
      *
-     * @return void|array
+     * @return object|void
      * @throws CouldNotSendNotification
      * @noinspection PhpUndefinedMethodInspection
      */
@@ -97,7 +97,7 @@ class IletiMerkeziChannel
             $message = new IletiMerkeziMessage($message);
         }
 
-        array_push($message->numbers, $notifiable->routeNotificationFor('sms'));
+        $message->numbers[] = $notifiable->routeNotificationFor('sms');
 
         $result = $this->postData((object) [
             'numbers' => $message->numbers,
@@ -153,7 +153,10 @@ class IletiMerkeziChannel
             $message = $exception->getMessage();
 
             if ($exception instanceof \Illuminate\Http\Client\RequestException) {
-                $message = json_decode($exception->response->toPsrResponse()->getBody()->getContents())->response->status->message;
+                $result = json_decode($exception->response->toPsrResponse()->getBody()->getContents());
+                if (is_object($result) && isset($result->response)) {
+                    $message = $result->response->status->message;
+                }
             }
 
             if ($this->debug) {
