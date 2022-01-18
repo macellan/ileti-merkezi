@@ -16,7 +16,7 @@ class IletiMerkeziMessage
      * @param string $body
      * @return static
      */
-    public static function create($body = '')
+    public static function create(string $body = ''): self
     {
         return new static($body);
     }
@@ -34,7 +34,7 @@ class IletiMerkeziMessage
      * @param string $value
      * @return $this
      */
-    public function setBody(string $value)
+    public function setBody(string $value): self
     {
         $this->body = $value;
 
@@ -45,7 +45,7 @@ class IletiMerkeziMessage
      * @param Carbon $value
      * @return $this
      */
-    public function setSendTime(Carbon $value)
+    public function setSendTime(Carbon $value): self
     {
         $this->sendTime = $value->format('d/m/Y H:i');
 
@@ -56,7 +56,7 @@ class IletiMerkeziMessage
      * @param array $array
      * @return $this
      */
-    public function addNumbers(array $array)
+    public function addNumbers(array $array): self
     {
         $this->numbers = $array;
 
