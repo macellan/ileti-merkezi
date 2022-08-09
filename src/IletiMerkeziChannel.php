@@ -129,6 +129,7 @@ class IletiMerkeziChannel
                 'order' => [
                     'sender' => $this->origin,
                     'sendDateTime' => $sms->sendDateTime,
+                    'iys' => 0,
                     'message' => [
                         'text' => $sms->message,
                         'receipents' => [
