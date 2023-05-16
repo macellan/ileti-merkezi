@@ -85,7 +85,7 @@ public function routeNotificationForSms()
 Sometimes you may need to send a notification to someone who is not stored as a "user" of your application. Using the Notification::route method, you may specify ad-hoc notification routing information before sending the notification:
 
 ```php
-Notification::route('iletimerkezi', '905322234433')  
+Notification::route('sms', '905322234433')  
             ->notify(new AccountApproved());
 ```
 
