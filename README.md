@@ -1,6 +1,9 @@
 # Ileti Merkezi SMS Notifications Channel for Laravel
 
-This package makes it easy to send sms notifications using [Ileti Merkezi](https://www.iletimerkezi.com/) with Laravel 7.0+, 8.0+ and 9.0+
+[![Latest Stable Version](https://poser.pugx.org/macellan/ileti-merkezi/v/stable)](https://packagist.org/packages/ileti-merkezi)
+[![Total Downloads](https://poser.pugx.org/macellan/ileti-merkezi/downloads)](https://packagist.org/packages/macellan/ileti-merkezi)
+
+This package makes it easy to send sms notifications using [Ileti Merkezi](https://www.iletimerkezi.com/) with Laravel 7.0+, 8.0+, 9.0+, 10.0+ and 11.0+
 
 ## Contents
 
@@ -105,11 +108,3 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 ## Credits
 
 - [Fatih Aytekin](https://github.com/faytekin)
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Alternative
-
-- [UnlemBilisim/ileti-merkezi-sms](https://github.com/UnlemBilisim/ileti-merkezi-sms)
