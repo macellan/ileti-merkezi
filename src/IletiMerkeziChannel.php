@@ -63,7 +63,7 @@ class IletiMerkeziChannel
     {
         $this->key = Arr::get($config, 'key');
         $secret = Arr::get($config, 'secret');
-        $this->hash = hash_hmac('sha256', $this->key, $secret);
+        $this->hash = Arr::get($config, 'hash', hash_hmac('sha256', $this->key, $secret));
         $this->endPoint = 'https://api.iletimerkezi.com/v1/send-sms/json';
         $this->origin = Arr::get($config, 'origin');
         $this->debug = Arr::get($config, 'debug', false);

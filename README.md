@@ -38,11 +38,11 @@ Add your Ileti Merkezi sms gate login, password and default sender name to your 
     'sms' => [ 
         'iletimerkezi' => [
             'key' => env('ILETIMERKEZI_KEY'),
-            'secret' => env('ILETIMERKEZI_SECRET'),
-            'origin' => env('ILETIMERKEZI_ORIGIN'),
+            'hash' => env('ILETIMERKEZI_HASH'),
+            'origin' => env('ILETIMERKEZI_ORIGIN'), // sender title
             'enable' => env('ILETIMERKEZI_ENABLE', true),
-            'debug' => env('ILETIMERKEZI_DEBUG', false), //will log sending attempts and results
-            'sandboxMode' => env('ILETIMERKEZI_SANDBOX_MODE', false) //will not invoke API call
+            'debug' => env('ILETIMERKEZI_DEBUG', false), // will log sending attempts and results
+            'sandboxMode' => env('ILETIMERKEZI_SANDBOX_MODE', false) // will not invoke API call
         ],
     ],
 ...
