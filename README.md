@@ -3,7 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/macellan/ileti-merkezi/v/stable)](https://packagist.org/packages/ileti-merkezi)
 [![Total Downloads](https://poser.pugx.org/macellan/ileti-merkezi/downloads)](https://packagist.org/packages/macellan/ileti-merkezi)
 
-This package makes it easy to send sms notifications using [Ileti Merkezi](https://www.iletimerkezi.com/) with Laravel 7.0+, 8.0+, 9.0+, 10.0+ and 11.0+
+This package makes it easy to send sms notifications using [Ileti Merkezi](https://www.iletimerkezi.com/) with Laravel 7.0+, 8.0+, 9.0+, 10.0+ 11.0+ and 12.0+ 
 
 ## Contents
 
